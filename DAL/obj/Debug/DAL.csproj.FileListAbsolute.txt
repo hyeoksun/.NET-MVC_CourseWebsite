@@ -1,0 +1,13 @@
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\bin\Debug\DAL.dll
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\bin\Debug\DAL.pdb
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\obj\Debug\DAL.dll
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\obj\Debug\DAL.pdb
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\bin\Debug\DTO.dll
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\bin\Debug\DTO.pdb
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\bin\Debug\DAL.dll.config
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\bin\Debug\EntityFramework.dll
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\bin\Debug\EntityFramework.xml
+C:\Users\chun0\source\repos\MVC_CourseWebsite\DAL\bin\Debug\zh-Hant\EntityFramework.resources.dll
