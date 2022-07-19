@@ -12,6 +12,7 @@
     <Property Name="Fax" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="MapPathLarge" Type="nvarchar(max)" Nullable="false" />
     <Property Name="MapPathSmall" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddDate" Type="datetime" Nullable="false" />
     <Property Name="isDeleted" Type="bit" Nullable="false" />
     <Property Name="DeletedDate" Type="datetime" />
     <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
@@ -215,7 +216,7 @@
     <Property Name="DeletedDate" Type="datetime" />
     <Property Name="AddDate" Type="datetime" Nullable="false" />
     <Property Name="LastUpdateUserID" Type="int" Nullable="false" />
-    <Property Name="LastUpdateDate" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Video">
     <Key>
@@ -340,7 +341,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Meta_T_User">
+  <Association Name="FK_Meta_T_User1">
     <End Role="T_User" Type="Self.T_User" Multiplicity="1" />
     <End Role="Meta" Type="Self.Meta" Multiplicity="*" />
     <ReferentialConstraint>
@@ -501,7 +502,7 @@
       <End Role="T_User" EntitySet="T_User" />
       <End Role="Log_Table" EntitySet="Log_Table" />
     </AssociationSet>
-    <AssociationSet Name="FK_Meta_T_User" Association="Self.FK_Meta_T_User">
+    <AssociationSet Name="FK_Meta_T_User1" Association="Self.FK_Meta_T_User1">
       <End Role="T_User" EntitySet="T_User" />
       <End Role="Meta" EntitySet="Meta" />
     </AssociationSet>

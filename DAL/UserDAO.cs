@@ -23,5 +23,75 @@ namespace DAL
             }
             return dto;
         }
+
+        public int AddUser(T_User user)
+        {
+            try
+            {
+                db.T_User.Add(user);
+                db.SaveChanges();
+                return user.ID;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<UserDTO> GetUsers()
+        {
+            List<T_User> list = db.T_User.Where(x => x.isDeleted == false).OrderBy(x => x.AddDate).ToList();
+            List<UserDTO> userlist = new List<UserDTO>();
+            foreach(var item in list)
+            {
+                UserDTO dto = new UserDTO();
+                dto.ID = item.ID;
+                dto.Name = item.NameSurname;
+                dto.Username = item.Username;
+                dto.Imagepath = item.ImagePath;
+                userlist.Add(dto);
+            }
+            return userlist;
+        }
+
+        public string UpdateUser(UserDTO model)
+        {
+            try
+            {
+                T_User user = db.T_User.First(x => x.ID == model.ID);
+                string oldImagePath = user.ImagePath;
+                user.NameSurname = model.Name;
+                user.Username = model.Username;
+                if (model.Imagepath != null)
+                {
+                    user.ImagePath = model.Imagepath;
+                }
+                user.Email = model.Enail;
+                user.Password = model.Password;
+                user.LastUpdateDate = DateTime.Now;
+                user.LastUpdateUserID = UserStatic.UserID;
+                user.isAdmin = model.isAdmin;
+                db.SaveChanges();
+                return oldImagePath;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public UserDTO GetUserWithID(int ID)
+        {
+            T_User user = db.T_User.First(x => x.ID == ID);
+            UserDTO dto = new UserDTO();
+            dto.ID = user.ID;
+            dto.Name = user.NameSurname;
+            dto.Username = user.Username;
+            dto.Password = user.Password;
+            dto.isAdmin = user.isAdmin;
+            dto.Enail = user.Email;
+            dto.Imagepath = user.ImagePath;
+            return dto;
+        }
     }
 }

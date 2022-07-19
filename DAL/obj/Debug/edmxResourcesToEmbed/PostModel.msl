@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Addresses">
       <EntityTypeMapping TypeName="POSTDATAModel.Address">
         <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Address1" ColumnName="Address" />
           <ScalarProperty Name="Email" ColumnName="Email" />

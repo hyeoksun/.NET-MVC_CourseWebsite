@@ -11,6 +11,8 @@
     <link href="~/Areas/Admin/Content/CSS/all.min.css" rel="stylesheet" />
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- SweetAlert2 -->
+    <link href="~/Areas/Admin/Content/CSS/bootstrap-4.min.css" rel="stylesheet" />
     <!-- DataTables -->
     <link href="~/Areas/Admin/Content/CSS/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <link href="~/Areas/Admin/Content/CSS/responsive.bootstrap4.min.css" rel="stylesheet" />
@@ -730,6 +732,8 @@
     <script src="~/Areas/Admin/Content/JS/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="~/Areas/Admin/Content/JS/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="~/Areas/Admin/Content/JS/sweetalert2.min.js"></script>
     <!-- DataTables -->
     <script src="~/Areas/Admin/Content/JS/jquery.dataTables.min.js"></script>
     <script src="~/Areas/Admin/Content/JS/dataTables.bootstrap4.min.js"></script>
@@ -745,6 +749,7 @@
             $("#example1").DataTable({
                 "responsive": true,
                 "autoWidth": false,
+                "ordering": false,
             });
             $('#example2').DataTable({
                 "paging": true,

@@ -26,6 +26,7 @@ namespace DAL
         public Nullable<System.DateTime> DeletedDate { get; set; }
         public int LastUpdateUserID { get; set; }
         public System.DateTime LastUpdateDate { get; set; }
+        public System.DateTime AddDate { get; set; }
     
         public virtual T_User T_User { get; set; }
     }

@@ -42,7 +42,7 @@ namespace DAL
         public Nullable<System.DateTime> DeletedDate { get; set; }
         public System.DateTime AddDate { get; set; }
         public int LastUpdateUserID { get; set; }
-        public string LastUpdateDate { get; set; }
+        public System.DateTime LastUpdateDate { get; set; }
     
         public virtual ICollection<Address> Addresses { get; set; }
         public virtual ICollection<Ad> Ads { get; set; }

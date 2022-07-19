@@ -15,8 +15,9 @@
     <Property Name="isDeleted" Type="Boolean" Nullable="false" />
     <Property Name="DeletedDate" Type="DateTime" Precision="3" />
     <Property Name="LastUpdateUserID" Type="Int32" Nullable="false" />
-    <Property Name="LastUpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdateDate" Nullable="false" Precision="3" Type="DateTime" />
     <NavigationProperty Name="T_User" Relationship="Self.FK_Address_T_User" FromRole="Address" ToRole="T_User" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="Ad">
     <Key>
@@ -237,7 +238,7 @@
     <Property Name="DeletedDate" Type="DateTime" Precision="3" />
     <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="LastUpdateUserID" Type="Int32" Nullable="false" />
-    <Property Name="LastUpdateDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="LastUpdateDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_T_User" FromRole="T_User" ToRole="Address" />
     <NavigationProperty Name="Ads" Relationship="Self.FK_Ads_T_User" FromRole="T_User" ToRole="Ads" />
     <NavigationProperty Name="Categories" Relationship="Self.FK_Category_T_User" FromRole="T_User" ToRole="Category" />

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace DTO
 {
@@ -14,10 +15,14 @@ namespace DTO
         public string Username { get; set; }
         [Required(ErrorMessage = "Please fill the Password Area")]
         public string Password { get; set; }
+        [Required(ErrorMessage = "Please fill the Email Area")]
         public string Enail { get; set; }
         public string Imagepath { get; set; }
+        [Required(ErrorMessage = "Please fill the Name Area")]
         public string Name { get; set; }
         public bool isAdmin { get; set; }
+        [Display(Name="User Image")]
+        public HttpPostedFileBase UserImage { get; set; }
 
     }
 }
