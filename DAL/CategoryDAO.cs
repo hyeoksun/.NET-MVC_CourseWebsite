@@ -49,6 +49,25 @@ namespace DAL
             return categoryList;
         }
 
+        public List<Post> DeleteCategory(int ID)
+        {
+            try
+            {
+                Category ct = db.Categories.First(x => x.ID == ID);
+                ct.isDeleted = true;
+                ct.DeletedDate = DateTime.Now;
+                ct.LastUpdateDate = DateTime.Now;
+                ct.LastUpdateUserID = UserStatic.UserID;
+                db.SaveChanges();
+                List<Post> postlist = db.Posts.Where(x => x.isDeleted == false && x.CategoryID == ID).ToList();
+                return postlist;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public CategoryDTO GetCategoryWithID(int ID)
         {
             try

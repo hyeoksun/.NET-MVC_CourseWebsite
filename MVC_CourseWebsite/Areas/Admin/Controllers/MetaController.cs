@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MVC_CourseWebsite.Areas.Admin.Controllers
 {
-    public class MetaController : Controller
+    public class MetaController : BaseController
     {
         // GET: Admin/Meta
         public ActionResult Index()
@@ -74,6 +74,11 @@ namespace MVC_CourseWebsite.Areas.Admin.Controllers
                 ViewBag.ProcessState = General.Message.EmptyArea;
             }
             return View(model);
+        }
+        public JsonResult DeleteMeta(int ID)
+        {
+            bll.DeleteMeta(ID);
+            return Json("");
         }
     }
 }

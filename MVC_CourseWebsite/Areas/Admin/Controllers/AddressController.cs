@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MVC_CourseWebsite.Areas.Admin.Controllers
 {
-    public class AddressController : Controller
+    public class AddressController : BaseController
     {
         AddressBLL bll = new AddressBLL();
         // GET: Address
@@ -72,6 +72,11 @@ namespace MVC_CourseWebsite.Areas.Admin.Controllers
                 ViewBag.ProcessState = General.Message.EmptyArea;
             }
             return View(model);
+        }
+        public JsonResult DeleteAddress(int ID)
+        {
+            bll.DeleteAddress(ID);
+            return Json("");
         }
     }
 }

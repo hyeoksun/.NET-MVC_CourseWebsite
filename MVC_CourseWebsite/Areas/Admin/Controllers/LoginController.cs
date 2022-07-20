@@ -20,7 +20,7 @@ namespace MVC_CourseWebsite.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Index(UserDTO model)
         {
-            if (ModelState.IsValid)
+            if (model.Username!=null&&model.Password!=null)
             {
                 UserDTO user = userbll.GetUserWithUsernameAndPassword(model);
                 if (user.ID != 0)

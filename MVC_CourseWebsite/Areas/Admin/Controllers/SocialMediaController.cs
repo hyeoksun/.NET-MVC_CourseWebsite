@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace MVC_CourseWebsite.Areas.Admin.Controllers
 {
-    public class SocialMediaController : Controller
+    public class SocialMediaController : BaseController
     {
         SocialMediaBLL bll = new SocialMediaBLL();
         // GET: Admin/SocialMedia
@@ -108,6 +108,16 @@ namespace MVC_CourseWebsite.Areas.Admin.Controllers
                 ViewBag.ProcessState = General.Message.UpdateSuccess;
             }
             return View(model);
+        }
+
+        public JsonResult DeleteSocialMedia(int ID)
+        {
+            string imagepath = bll.DeleteSocialMedia(ID);
+            if (System.IO.File.Exists(Server.MapPath("~/Area/Admin/Content/SocialMediaImages/" + imagepath)))
+            {
+                System.IO.File.Delete(Server.MapPath("~/Area/Admin/Content/SocialMediaImages/" + imagepath));
+            }
+            return Json("");
         }
     }
 }

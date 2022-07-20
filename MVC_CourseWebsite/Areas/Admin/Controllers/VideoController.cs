@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MVC_CourseWebsite.Areas.Admin.Controllers
 {
-    public class VideoController : Controller
+    public class VideoController : BaseController
     {
         VideoBLL bll = new VideoBLL();
         // GET: Admin/Video
@@ -75,6 +75,11 @@ namespace MVC_CourseWebsite.Areas.Admin.Controllers
                 ViewBag.ProcessState = General.Message.EmptyArea;
             }
             return View(model);
+        }
+        public JsonResult DeleteVideo(int ID)
+        {
+            bll.DeleteVideo(ID);
+            return Json("");
         }
     }
 }

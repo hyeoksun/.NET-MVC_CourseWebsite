@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace MVC_CourseWebsite.Areas.Admin.Controllers
 {
-    public class AdsController : Controller
+    public class AdsController : BaseController
     {
         AdsBLL bll = new AdsBLL();
         // GET: Admin/Ads
@@ -101,6 +101,15 @@ namespace MVC_CourseWebsite.Areas.Admin.Controllers
                 ViewBag.ProcessState = General.Message.UpdateSuccess;
             }
             return View(model);
+        }
+        public JsonResult DeleteAds(int ID)
+        {
+            string imagepath = bll.DeleteAds(ID);
+            if (System.IO.File.Exists(Server.MapPath("~/Areas/Admin/Content/AdsImage/" + imagepath)))
+            {
+                System.IO.File.Delete(Server.MapPath("~/Areas/Admin/Content/AdsImage/" + imagepath));
+            }
+            return Json("");
         }
     }
 }

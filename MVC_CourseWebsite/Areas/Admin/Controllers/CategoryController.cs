@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MVC_CourseWebsite.Areas.Admin.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : BaseController
     {
         CategoryBLL bll = new CategoryBLL();
         // GET: Admin/Category
@@ -61,6 +61,19 @@ namespace MVC_CourseWebsite.Areas.Admin.Controllers
             else
                 ViewBag.ProcessState = General.Message.EmptyArea;
             return View(model);
+        }
+
+        public JsonResult DeleteCategory(int ID)
+        {
+            List<PostImageDTO> postimagelist = bll.DeleteCategory(ID);
+            foreach(var item in postimagelist)
+            {
+                if (System.IO.File.Exists(Server.MapPath("~/Areas/Admin/Content/PostImage/" + item.ImagePath)))
+                {
+                    System.IO.File.Delete(Server.MapPath("~/Areas/Admin/Content/PostImage/" + item.ImagePath));
+                }
+            }
+            return Json("");
         }
     }
 }

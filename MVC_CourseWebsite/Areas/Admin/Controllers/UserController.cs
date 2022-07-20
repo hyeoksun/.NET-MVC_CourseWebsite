@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace MVC_CourseWebsite.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         UserBLL bll = new UserBLL();
         // GET: Admin/User
@@ -102,6 +102,16 @@ namespace MVC_CourseWebsite.Areas.Admin.Controllers
                 }
             }
             return View(model);
+        }
+
+        public JsonResult DeleteUser(int ID)
+        {
+            string imagepath = bll.DeleteUser(ID);
+            if (System.IO.File.Exists(Server.MapPath("~/Area/Admin/Content/UserImage/" + imagepath)))
+            {
+                System.IO.File.Delete(Server.MapPath("~/Area/Admin/Content/UserImage/" + imagepath));
+            }
+            return Json("");
         }
     }
 }

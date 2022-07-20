@@ -11,7 +11,7 @@ using System.IO;
 
 namespace MVC_CourseWebsite.Areas.Admin.Controllers
 {
-    public class PostController : Controller
+    public class PostController : BaseController
     {
         PostBLL bll = new PostBLL();
         // GET: Admin/Post
@@ -143,5 +143,27 @@ namespace MVC_CourseWebsite.Areas.Admin.Controllers
             return View(model);
         }
 
+        public JsonResult DeletePostImage(int ID)
+        {
+            string imagepath = bll.DeletePostImage(ID);
+            if (System.IO.File.Exists(Server.MapPath("~/Areas/Admin/Content/PostImage/" + imagepath)))
+            {
+                System.IO.File.Delete(Server.MapPath("~/Areas/Admin/Content/PostImage/" + imagepath));
+            }
+            return Json("");
+        }
+
+        public JsonResult DeletePost(int ID)
+        {
+            List<PostImageDTO> imagelist = bll.DeletePost(ID);
+            foreach(var item in imagelist)
+            {
+                if (System.IO.File.Exists(Server.MapPath("~/Areas/Admin/Content/PostImage/" + item.ImagePath)))
+                {
+                    System.IO.File.Delete(Server.MapPath("~/Areas/Admin/Content/PostImage/" + item.ImagePath));
+                }
+            }
+            return Json("");
+        }
     }
 }

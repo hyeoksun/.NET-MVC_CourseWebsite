@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace MVC_CourseWebsite.Areas.Admin.Controllers
 {
-    public class FavController : Controller
+    public class FavController : BaseController
     {
         FavBLL bll = new FavBLL();
         // GET: Admin/Fav
